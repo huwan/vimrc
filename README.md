@@ -12,7 +12,7 @@ __     _____ __  __ ____   ____
 - ctags/cscope
 
 ```
-sudo apt install vim git ctags cscope
+sudo apt install vim git curl ctags cscope
 ```
 ## Quick Start
 
