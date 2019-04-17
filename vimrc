@@ -9,7 +9,7 @@ set cursorline
 " Remove the underline from enabling cursorline:
 highlight clear CursorLine
 " Set line numbering to red background:
-highlight CursorLineNR ctermbg=yellow
+" highlight CursorLineNR ctermbg=yellow
 
 let mapleader=","
 
