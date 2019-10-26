@@ -19,15 +19,15 @@ if &compatible
 endif
 
 " Required:
-set runtimepath+=/home/atom/.vim/bundles/repos/github.com/Shougo/dein.vim
+set runtimepath+=~/.vim/bundles/repos/github.com/Shougo/dein.vim
 
 " Required:
-if dein#load_state('/home/atom/.vim/bundles')
-  call dein#begin('/home/atom/.vim/bundles')
+if dein#load_state('~/.vim/bundles')
+  call dein#begin('~/.vim/bundles')
 
   " Let dein manage dein
   " Required:
-  call dein#add('/home/atom/.vim/bundles/repos/github.com/Shougo/dein.vim')
+  call dein#add('~/.vim/bundles/repos/github.com/Shougo/dein.vim')
 
   " Add or remove your plugins here:
   call dein#add('vim-airline/vim-airline')
@@ -118,8 +118,8 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
-" mkdir -p $HOME/.vim/swapfiles
-set directory=$HOME/.vim/swapfiles//
+" mkdir -p ~/.vim/swapfiles
+set directory=~/.vim/swapfiles//
 
 " To have *.inc files be recognized as Makefile
 :let g:filetype_inc = "make"
@@ -138,4 +138,3 @@ autocmd SwapExists * let v:swapchoice = "o"
 
 " Autotags
 let g:autotags_ctags_opts = "--c++-kinds=+p --fields=+iaS --extra=+q --extra=+f"
-
