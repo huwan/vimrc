@@ -1,7 +1,8 @@
-set nu
-set ruler
+set ruler                                                                                                                                         
 set hlsearch
+set incsearch
 set ignorecase smartcase
+set number relativenumber
 
 " Enable cursor line position tracking:
 set cursorline
@@ -12,6 +13,7 @@ highlight clear CursorLine
 " highlight CursorLineNR ctermbg=yellow
 
 let mapleader=","
+noremap \ ,                                                                                                                                       
 
 "dein Scripts-----------------------------
 if &compatible
@@ -41,6 +43,8 @@ if dein#load_state('~/.vim/bundles')
   " call dein#add('majutsushi/tagbar')
   " call dein#add('terryma/vim-expand-region')
   " call dein#add('junegunn/vim-easy-align')
+  call dein#add('jeffkreeftmeijer/vim-numbertoggle')
+  call dein#add('tpope/vim-surround')
 
   " Required:
   call dein#end()
