@@ -45,6 +45,7 @@ if dein#load_state('~/.vim/bundles')
   " call dein#add('junegunn/vim-easy-align')
   call dein#add('jeffkreeftmeijer/vim-numbertoggle')
   call dein#add('tpope/vim-surround')
+  call dein#add('pseewald/vim-anyfold')
 
   " Required:
   call dein#end()
@@ -142,3 +143,7 @@ autocmd SwapExists * let v:swapchoice = "o"
 
 " Autotags
 let g:autotags_ctags_opts = "--c++-kinds=+p --fields=+iaS --extra=+q --extra=+f"
+
+" VIM AnyFold
+autocmd Filetype * AnyFoldActivate
+set foldlevel=99 " Open all folds
