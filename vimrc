@@ -41,6 +41,7 @@ if dein#load_state('~/.vim/bundles')
   " call dein#add('junegunn/vim-easy-align')
   call dein#add('tpope/vim-surround')
   call dein#add('pseewald/vim-anyfold')
+  call dein#add('ntpeters/vim-better-whitespace')
 
   " Required:
   call dein#end()
@@ -77,23 +78,6 @@ set cinoptions=(0
 autocmd FileType make,automake set noexpandtab shiftwidth=8 softtabstop=8
 autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
 
-" Trailing whitespaces and tabs are forbidden, so highlight them.
-highlight ForbiddenWhitespace ctermbg=red guibg=red
-match ForbiddenWhitespace /\s\+$/
-" match ForbiddenWhitespace /\t/
-" Do not highlight spaces at the end of line while typing on that line.
-autocmd InsertEnter * match ForbiddenWhitespace /\t\|\s\+\%#\@<!$/
-
-" Removes trailing spaces
-function TrimWhiteSpace()
-  %s/\s*$//
-  ''
-" retab
-:endfunction
-
-map <F2> :call TrimWhiteSpace()<CR>
-map! <F2> :call TrimWhiteSpace()<CR>
-
 " Nerdtree
 nmap <Leader>fl :NERDTreeToggle<CR>
 let NERDTreeWinSize=32
@@ -125,7 +109,7 @@ endif
 set directory=~/.vim/swapfiles//
 
 " To have *.inc files be recognized as Makefile
-:let g:filetype_inc = "make"
+let g:filetype_inc = "make"
 
 " vim-commentary
 autocmd FileType cfg setlocal commentstring=#\ %s
@@ -158,3 +142,10 @@ function! XTermPasteBegin()
   set paste
   return ""
 endfunction
+
+" Vim Better Whitespace
+" let g:better_whitespace_enabled=1
+let g:strip_whitelines_at_eof=1
+let g:better_whitespace_filetypes_blacklist=['diff', 'gitcommit', 'unite', 'qf', 'help']
+map <F2> :StripWhitespace<CR>
+map! <F2> :StripWhitespace<CR>
