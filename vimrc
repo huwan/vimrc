@@ -1,23 +1,19 @@
-set ruler                                                                                                                                         
+set ruler
 set hlsearch
 set incsearch
 set ignorecase smartcase
-set number relativenumber
+set number
 
-" Enable cursor line position tracking:
+" Enable cursor line position tracking
 set cursorline
-" hi CursorLine   cterm=bold ctermbg=lightyellow ctermfg=black
-" Remove the underline from enabling cursorline:
 highlight clear CursorLine
-" Set line numbering to red background:
-" highlight CursorLineNR ctermbg=yellow
 
 let mapleader=","
-noremap \ ,                                                                                                                                       
+noremap \ ,
 
 "dein Scripts-----------------------------
 if &compatible
-  set nocompatible               " Be iMproved
+  set nocompatible
 endif
 
 " Required:
@@ -43,7 +39,6 @@ if dein#load_state('~/.vim/bundles')
   " call dein#add('majutsushi/tagbar')
   " call dein#add('terryma/vim-expand-region')
   " call dein#add('junegunn/vim-easy-align')
-  call dein#add('jeffkreeftmeijer/vim-numbertoggle')
   call dein#add('tpope/vim-surround')
   call dein#add('pseewald/vim-anyfold')
 
@@ -71,20 +66,21 @@ set ambiwidth=double
 let g:airline_section_y=''
 let g:airline#extensions#whitespace#enabled = 1
 let g:airline#extensions#whitespace#checks = [ 'trailing' ]
-" let g:airline#extensions#whitespace#mixed_indent_algo = 1
+let g:airline#extensions#whitespace#mixed_indent_algo = 1
 
 " set expandtab
-" set shiftwidth=4
-" set softtabstop=4
+set shiftwidth=4
+set softtabstop=4
 set cindent
 set cinoptions=(0
 " Allow tabs in Makefiles.
 autocmd FileType make,automake set noexpandtab shiftwidth=8 softtabstop=8
-" Trailing whitespace and tabs are forbidden, so highlight them.
-" highlight ForbiddenWhitespace ctermbg=red guibg=red
-" match ForbiddenWhitespace /\s\+$\|\t/
+" Trailing whitespaces and tabs are forbidden, so highlight them.
+highlight ForbiddenWhitespace ctermbg=red guibg=red
+match ForbiddenWhitespace /\s\+$/
+" match ForbiddenWhitespace /\t/
 " Do not highlight spaces at the end of line while typing on that line.
-" autocmd InsertEnter * match ForbiddenWhitespace /\t\|\s\+\%#\@<!$/
+autocmd InsertEnter * match ForbiddenWhitespace /\t\|\s\+\%#\@<!$/
 
 " Removes trailing spaces
 function TrimWhiteSpace()
@@ -144,6 +140,6 @@ autocmd SwapExists * let v:swapchoice = "o"
 " Autotags
 let g:autotags_ctags_opts = "--c++-kinds=+p --fields=+iaS --extra=+q --extra=+f"
 
-" VIM AnyFold
+" Fold
 autocmd Filetype * AnyFoldActivate
 set foldlevel=99 " Open all folds
