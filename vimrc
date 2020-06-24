@@ -120,7 +120,7 @@ nnoremap <silent> <leader>n :set nu!<CR>
 nnoremap <silent> <leader>r :set relativenumber!<CR>
 " nnoremap <silent> <leader>r :set relativenumber! <bar> set nu!<CR>
 
-" open a file in readonly mode if it already has a swapfile
+" Open a file in readonly mode if it already has a swapfile
 autocmd SwapExists * let v:swapchoice = "o"
 
 " Autotags
@@ -142,6 +142,9 @@ function! XTermPasteBegin()
   set paste
   return ""
 endfunction
+
+" Disable continuation of comments to the next line
+autocmd FileType * set formatoptions-=cro
 
 " Vim Better Whitespace
 " let g:better_whitespace_enabled=1
