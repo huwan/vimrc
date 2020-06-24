@@ -75,6 +75,8 @@ set cindent
 set cinoptions=(0
 " Allow tabs in Makefiles.
 autocmd FileType make,automake set noexpandtab shiftwidth=8 softtabstop=8
+autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
+
 " Trailing whitespaces and tabs are forbidden, so highlight them.
 highlight ForbiddenWhitespace ctermbg=red guibg=red
 match ForbiddenWhitespace /\s\+$/
@@ -143,3 +145,16 @@ let g:autotags_ctags_opts = "--c++-kinds=+p --fields=+iaS --extra=+q --extra=+f"
 " Fold
 autocmd Filetype * AnyFoldActivate
 set foldlevel=99 " Open all folds
+
+" Paste mode
+" https://stackoverflow.com/a/38258720
+let &t_SI .= "\<Esc>[?2004h"
+let &t_EI .= "\<Esc>[?2004l"
+
+inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+
+function! XTermPasteBegin()
+  set pastetoggle=<Esc>[201~
+  set paste
+  return ""
+endfunction
