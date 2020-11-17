@@ -44,6 +44,8 @@ if dein#load_state('~/.vim/bundles')
   call dein#add('tpope/vim-surround')
   call dein#add('pseewald/vim-anyfold')
   call dein#add('ntpeters/vim-better-whitespace')
+  call dein#add('Yggdroot/indentLine')
+  call dein#add('derekwyatt/vim-fswitch')
 
   " Required:
   call dein#end()
